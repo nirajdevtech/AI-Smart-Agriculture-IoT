@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Smart Agriculture Platform</title>
+
+<meta http-equiv="refresh" content="3">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<h1>🌱 AI-Powered Smart Agriculture Monitoring Platform</h1>
+
+<div class="info">
+Real-Time Monitoring • MQTT Communication • Smart Irrigation • Analytics
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>🌡 Temperature</h2>
+<p>{{data.temperature}} °C</p>
+</div>
+
+<div class="card">
+<h2>💧 Humidity</h2>
+<p>{{data.humidity}} %</p>
+</div>
+
+<div class="card">
+<h2>🌱 Soil Moisture</h2>
+<p>{{data.soil_moisture}} %</p>
+</div>
+
+<div class="card">
+<h2>🚰 Pump</h2>
+<p>{{pump_status}}</p>
+</div>
+
+<div class="card">
+<h2>🤖 Crop Health</h2>
+<p>{{crop_health}}</p>
+</div>
+
+<div class="card">
+<h2>🛰 Status</h2>
+<p>{{system_status}}</p>
+</div>
+
+</div>
+
+{% if data.soil_moisture < 30 %}
+<div class="alert">
+🚨 Low Soil Moisture Detected → Automatic Irrigation Activated
+</div>
+{% endif %}
+
+<h2 class="section-title">
+📊 Analytics Dashboard
+</h2>
+
+<div class="container">
+
+<div class="card">
+<h2>📈 Avg Temp</h2>
+<p>{{avg_temp}}</p>
+</div>
+
+<div class="card">
+<h2>📈 Avg Humidity</h2>
+<p>{{avg_humidity}}</p>
+</div>
+
+<div class="card">
+<h2>📡 Readings</h2>
+<p>{{total_readings}}</p>
+</div>
+
+<div class="card">
+<h2>💧 Water Saved</h2>
+<p>{{water_saved}} L</p>
+</div>
+
+</div>
+
+<div class="chart-box">
+<canvas id="myChart"></canvas>
+</div>
+
+<h2 class="section-title">
+📜 Sensor History
+</h2>
+
+<table>
+
+<tr>
+<th>Time</th>
+<th>Temperature</th>
+<th>Humidity</th>
+<th>Soil Moisture</th>
+</tr>
+
+{% for row in history %}
+
+<tr>
+
+<td>{{row.time}}</td>
+<td>{{row.temperature}} °C</td>
+<td>{{row.humidity}} %</td>
+<td>{{row.soil_moisture}} %</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="architecture">
+
+<h2>🏗 System Architecture</h2>
+
+<p>
+
+Temperature Sensor
+→ Humidity Sensor
+→ Soil Moisture Sensor
+→ MQTT Broker
+→ Flask Backend
+→ AI Crop Health Engine
+→ Smart Irrigation Controller
+→ Dashboard Analytics
+
+</p>
+
+</div>
+
+<footer>
+
+<h3>NIRAJ KUMAR</h3>
+
+<p>
+AI-Powered Smart Agriculture Monitoring, Analytics &
+Automated Irrigation Platform
+</p>
+
+</footer>
+
+<script>
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+
+type: 'line',
+
+data: {
+
+labels: [
+'Temperature',
+'Humidity',
+'Soil Moisture'
+],
+
+datasets: [{
+label: 'Current Sensor Values',
+data: [
+{{data.temperature}},
+{{data.humidity}},
+{{data.soil_moisture}}
+],
+fill:false,
+tension:0.4
+}]
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

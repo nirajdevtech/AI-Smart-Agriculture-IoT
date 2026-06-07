@@ -1,0 +1,107 @@
+body{
+font-family:'Segoe UI',sans-serif;
+background:#0f172a;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+h1{
+color:#38bdf8;
+}
+
+.info{
+margin-bottom:30px;
+color:#cbd5e1;
+font-size:18px;
+}
+
+.section-title{
+margin-top:40px;
+color:#38bdf8;
+}
+
+.container{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+width:240px;
+border-radius:15px;
+border:1px solid #334155;
+box-shadow:0 4px 15px rgba(0,0,0,.4);
+}
+
+.card h2{
+color:#38bdf8;
+}
+
+.card p{
+font-size:30px;
+font-weight:bold;
+}
+
+.alert{
+background:#dc2626;
+padding:15px;
+margin:25px auto;
+width:70%;
+border-radius:10px;
+font-size:20px;
+font-weight:bold;
+}
+
+.chart-box{
+width:75%;
+margin:auto;
+margin-top:30px;
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+}
+
+table{
+width:80%;
+margin:auto;
+margin-top:20px;
+border-collapse:collapse;
+background:#1e293b;
+}
+
+th{
+background:#2563eb;
+padding:15px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #334155;
+}
+
+.architecture{
+width:80%;
+margin:30px auto;
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+}
+
+.architecture h2{
+color:#38bdf8;
+}
+
+.architecture p{
+line-height:2;
+color:#cbd5e1;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+color:#94a3b8;
+}
